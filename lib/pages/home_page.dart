@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pos/components/home_tab.dart';
+import 'package:pos/components/product_card.dart';
 import 'package:pos/components/product_order.dart';
 
 class HomePage extends StatefulWidget {
@@ -59,73 +60,73 @@ class _HomePageState extends State<HomePage> {
                   crossAxisCount: 4,
                   childAspectRatio: (1 / 1.2),
                   children: [
-                    _item(
+                    productCard(
                       image: 'items/1.png',
                       title: 'Original Burger',
                       price: '\$5.99',
                       item: '11 item',
                     ),
-                    _item(
+                    productCard(
                       image: 'items/2.png',
                       title: 'Double Burger',
                       price: '\$10.99',
                       item: '10 item',
                     ),
-                    _item(
+                    productCard(
                       image: 'items/3.png',
                       title: 'Cheese Burger',
                       price: '\$6.99',
                       item: '7 item',
                     ),
-                    _item(
+                    productCard(
                       image: 'items/4.png',
                       title: 'Double Cheese Burger',
                       price: '\$12.99',
                       item: '20 item',
                     ),
-                    _item(
+                    productCard(
                       image: 'items/5.png',
                       title: 'Spicy Burger',
                       price: '\$7.39',
                       item: '12 item',
                     ),
-                    _item(
+                    productCard(
                       image: 'items/6.png',
                       title: 'Special Black Burger',
                       price: '\$7.39',
                       item: '39 item',
                     ),
-                    _item(
+                    productCard(
                       image: 'items/7.png',
                       title: 'Special Cheese Burger',
                       price: '\$8.00',
                       item: '2 item',
                     ),
-                    _item(
+                    productCard(
                       image: 'items/8.png',
                       title: 'Jumbo Cheese Burger',
                       price: '\$15.99',
                       item: '2 item',
                     ),
-                    _item(
+                    productCard(
                       image: 'items/9.png',
                       title: 'Spicy Burger',
                       price: '\$7.39',
                       item: '12 item',
                     ),
-                    _item(
+                    productCard(
                       image: 'items/10.png',
                       title: 'Special Black Burger',
                       price: '\$7.39',
                       item: '39 item',
                     ),
-                    _item(
+                    productCard(
                       image: 'items/11.png',
                       title: 'Special Cheese Burger',
                       price: '\$8.00',
                       item: '2 item',
                     ),
-                    _item(
+                    productCard(
                       image: 'items/12.png',
                       title: 'Jumbo Cheese Burger',
                       price: '\$15.99',
@@ -278,66 +279,6 @@ class _HomePageState extends State<HomePage> {
   }
 
   
-
-  Widget _item({
-    required String image,
-    required String title,
-    required String price,
-    required String item,
-  }) {
-    return Container(
-      margin: const EdgeInsets.only(right: 20, bottom: 20),
-      padding: const EdgeInsets.all(12),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(18),
-        color: const Color(0xff1f2029),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            height: 130,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16),
-              image: DecorationImage(
-                image: AssetImage(image),
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
-          const SizedBox(height: 10),
-          Text(
-            title,
-            style: const TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-              fontSize: 14,
-            ),
-          ),
-          const SizedBox(height: 20),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                price,
-                style: const TextStyle(
-                  color: Colors.deepOrange,
-                  fontSize: 20,
-                ),
-              ),
-              Text(
-                item,
-                style: const TextStyle(
-                  color: Colors.white60,
-                  fontSize: 12,
-                ),
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
 
 
   Widget _topMenu({
