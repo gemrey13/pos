@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pos/components/home_tab.dart';
+import 'package:pos/components/home_topbar.dart';
 import 'package:pos/components/product_card.dart';
 import 'package:pos/components/product_order.dart';
 
@@ -21,7 +22,7 @@ class _HomePageState extends State<HomePage> {
           flex: 14,
           child: Column(
             children: [
-              _topMenu(
+              homeTopbar(
                 title: 'TEST POS',
                 subTitle: '20 October 2022',
                 action: _search(),
@@ -143,7 +144,7 @@ class _HomePageState extends State<HomePage> {
           flex: 5,
           child: Column(
             children: [
-              _topMenu(
+              homeTopbar(
                 title: 'Order',
                 subTitle: 'Table 8',
                 action: Container(),
@@ -279,44 +280,6 @@ class _HomePageState extends State<HomePage> {
   }
 
   
-
-
-  Widget _topMenu({
-    required String title,
-    required String subTitle,
-    required Widget action,
-  }) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              title,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: 6),
-            Text(
-              subTitle,
-              style: const TextStyle(
-                color: Colors.white54,
-                fontSize: 10,
-              ),
-            ),
-          ],
-        ),
-        Expanded(flex: 1, child: Container(width: double.infinity)),
-        Expanded(flex: 5, child: action),
-      ],
-    );
-  }
 
   Widget _search() {
     return Container(
