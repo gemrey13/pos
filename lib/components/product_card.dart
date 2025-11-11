@@ -16,6 +16,7 @@ Widget productCard({
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.max,
         children: [
           Container(
             height: 130,

@@ -3,6 +3,7 @@ import 'package:pos/components/home_tab.dart';
 import 'package:pos/components/home_topbar.dart';
 import 'package:pos/components/product_card.dart';
 import 'package:pos/components/product_order.dart';
+import 'package:pos/components/search_input.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -12,6 +13,63 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final products = [
+    {
+      'image': 'items/1.png',
+      'title': 'Original Burgers',
+      'price': '\$5.99',
+      'item': '11 item',
+    },
+    {
+      'image': 'items/2.png',
+      'title': 'Double Burger',
+      'price': '\$10.99',
+      'item': '10 item',
+    },
+    {
+      'image': 'items/3.png',
+      'title': 'Cheese Burger',
+      'price': '\$6.99',
+      'item': '7 item',
+    },
+    {
+      'image': 'items/4.png',
+      'title': 'Double Cheese Burger',
+      'price': '\$12.99',
+      'item': '20 item',
+    },
+    {
+      'image': 'items/5.png',
+      'title': 'Spicy Burger',
+      'price': '\$7.39',
+      'item': '12 item',
+    },
+    {
+      'image': 'items/6.png',
+      'title': 'Special Black Burger',
+      'price': '\$7.39',
+      'item': '39 item',
+    },
+    {
+      'image': 'items/7.png',
+      'title': 'Special Cheese Burger',
+      'price': '\$8.00',
+      'item': '2 item',
+    },
+    {
+      'image': 'items/8.png',
+      'title': 'Jumbo Cheese Burger',
+      'price': '\$15.99',
+      'item': '2 item',
+    },
+    {
+      'image': 'items/8.png',
+      'title': 'Jumbo Cheese Burger',
+      'price': '\$15.99',
+      'item': '2 item',
+    },
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -25,7 +83,7 @@ class _HomePageState extends State<HomePage> {
               homeTopbar(
                 title: 'TEST POS',
                 subTitle: '20 October 2022',
-                action: _search(),
+                action: searchInput(),
               ),
               Container(
                 height: 100,
@@ -61,78 +119,13 @@ class _HomePageState extends State<HomePage> {
                   crossAxisCount: 4,
                   childAspectRatio: (1 / 1.2),
                   children: [
-                    productCard(
-                      image: 'items/1.png',
-                      title: 'Original Burger',
-                      price: '\$5.99',
-                      item: '11 item',
-                    ),
-                    productCard(
-                      image: 'items/2.png',
-                      title: 'Double Burger',
-                      price: '\$10.99',
-                      item: '10 item',
-                    ),
-                    productCard(
-                      image: 'items/3.png',
-                      title: 'Cheese Burger',
-                      price: '\$6.99',
-                      item: '7 item',
-                    ),
-                    productCard(
-                      image: 'items/4.png',
-                      title: 'Double Cheese Burger',
-                      price: '\$12.99',
-                      item: '20 item',
-                    ),
-                    productCard(
-                      image: 'items/5.png',
-                      title: 'Spicy Burger',
-                      price: '\$7.39',
-                      item: '12 item',
-                    ),
-                    productCard(
-                      image: 'items/6.png',
-                      title: 'Special Black Burger',
-                      price: '\$7.39',
-                      item: '39 item',
-                    ),
-                    productCard(
-                      image: 'items/7.png',
-                      title: 'Special Cheese Burger',
-                      price: '\$8.00',
-                      item: '2 item',
-                    ),
-                    productCard(
-                      image: 'items/8.png',
-                      title: 'Jumbo Cheese Burger',
-                      price: '\$15.99',
-                      item: '2 item',
-                    ),
-                    productCard(
-                      image: 'items/9.png',
-                      title: 'Spicy Burger',
-                      price: '\$7.39',
-                      item: '12 item',
-                    ),
-                    productCard(
-                      image: 'items/10.png',
-                      title: 'Special Black Burger',
-                      price: '\$7.39',
-                      item: '39 item',
-                    ),
-                    productCard(
-                      image: 'items/11.png',
-                      title: 'Special Cheese Burger',
-                      price: '\$8.00',
-                      item: '2 item',
-                    ),
-                    productCard(
-                      image: 'items/12.png',
-                      title: 'Jumbo Cheese Burger',
-                      price: '\$15.99',
-                      item: '2 item',
-                    ),
+                    for (var product in products)
+                      productCard(
+                        image: product['image']!,
+                        title: product['title']!,
+                        price: product['price']!,
+                        item: product['item']!,
+                      ),
                   ],
                 ),
               ),
@@ -277,31 +270,5 @@ class _HomePageState extends State<HomePage> {
         ),
       ],
     );
-  }
-
-  
-
-  Widget _search() {
-    return Container(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        width: double.infinity,
-        height: 40,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(18),
-          color: const Color(0xff1f2029),
-        ),
-        child: Row(
-          children: const [
-            Icon(
-              Icons.search,
-              color: Colors.white54,
-            ),
-            SizedBox(width: 10),
-            Text(
-              'Search menu here...',
-              style: TextStyle(color: Colors.white54, fontSize: 11),
-            )
-          ],
-        ));
   }
 }
