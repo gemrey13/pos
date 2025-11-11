@@ -16,7 +16,7 @@ class _HomePageState extends State<HomePage> {
   final products = [
     {
       'image': 'items/1.png',
-      'title': 'Original Burgers',
+      'title': 'Original Burger',
       'price': '\$5.99',
       'item': '11 item',
     },
