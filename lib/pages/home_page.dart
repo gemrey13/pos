@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pos/components/home_tab.dart';
+import 'package:pos/components/product_order.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -29,22 +31,22 @@ class _HomePageState extends State<HomePage> {
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: [
-                    _itemTab(
+                    homeTab(
                       icon: 'icons/icon-burger.png',
                       title: 'Burger',
                       isActive: true,
                     ),
-                    _itemTab(
+                    homeTab(
                       icon: 'icons/icon-noodles.png',
                       title: 'Noodles',
                       isActive: false,
                     ),
-                    _itemTab(
+                    homeTab(
                       icon: 'icons/icon-drinks.png',
                       title: 'Drinks',
                       isActive: false,
                     ),
-                    _itemTab(
+                    homeTab(
                       icon: 'icons/icon-desserts.png',
                       title: 'Desserts',
                       isActive: false,
@@ -149,25 +151,25 @@ class _HomePageState extends State<HomePage> {
               Expanded(
                 child: ListView(
                   children: [
-                    _itemOrder(
+                    productOrder(
                       image: 'items/1.png',
                       title: 'Orginal Burger',
                       qty: '2',
                       price: '\$5.99',
                     ),
-                    _itemOrder(
+                    productOrder(
                       image: 'items/2.png',
                       title: 'Double Burger',
                       qty: '3',
                       price: '\$10.99',
                     ),
-                    _itemOrder(
+                    productOrder(
                       image: 'items/6.png',
                       title: 'Special Black Burger',
                       qty: '2',
                       price: '\$8.00',
                     ),
-                    _itemOrder(
+                    productOrder(
                       image: 'items/4.png',
                       title: 'Special Cheese Burger',
                       qty: '2',
@@ -275,69 +277,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _itemOrder({
-    required String image,
-    required String title,
-    required String qty,
-    required String price,
-  }) {
-    return Container(
-      padding: const EdgeInsets.all(8),
-      margin: const EdgeInsets.only(bottom: 10),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(14),
-        color: const Color(0xff1f2029),
-      ),
-      child: Row(
-        children: [
-          Container(
-            height: 60,
-            width: 60,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12),
-              image: DecorationImage(
-                image: AssetImage(image),
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
-          const SizedBox(width: 10),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: const TextStyle(
-                    fontSize: 10,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                ),
-                const SizedBox(height: 10),
-                Text(
-                  price,
-                  style: const TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                )
-              ],
-            ),
-          ),
-          Text(
-            '$qty x',
-            style: const TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
+  
 
   Widget _item({
     required String image,
@@ -399,38 +339,6 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _itemTab(
-      {required String icon, required String title, required bool isActive}) {
-    return Container(
-      width: 180,
-      margin: const EdgeInsets.only(right: 26),
-      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 24),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: const Color(0xff1f2029),
-        border: isActive
-            ? Border.all(color: Colors.deepOrangeAccent, width: 3)
-            : Border.all(color: const Color(0xff1f2029), width: 3),
-      ),
-      child: Row(
-        children: [
-          Image.asset(
-            icon,
-            width: 38,
-          ),
-          const SizedBox(width: 8),
-          Text(
-            title,
-            style: const TextStyle(
-              fontSize: 14,
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-            ),
-          )
-        ],
-      ),
-    );
-  }
 
   Widget _topMenu({
     required String title,
